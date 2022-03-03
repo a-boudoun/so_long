@@ -1,0 +1,1 @@
+parsing_map.c => path of map file should be like path/map.ber; so may be you should add path to filename;
