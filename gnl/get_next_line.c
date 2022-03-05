@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 14:43:22 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/03 19:24:57 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/04 19:09:35 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,16 @@ char	*get_next_line(int fd)
 // int main(){
 // 	//char s[1000];
 // 	int fd;
+// 	char *line;
 
 // 	fd = open("test.txt", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		printf("%s", line);
+// 		line = get_next_line(fd);
+// 	}
+// 	printf("last%s\n", get_next_line(fd));
+// 	printf("last2%s", get_next_line(fd));
 // 	close(fd);
 // }

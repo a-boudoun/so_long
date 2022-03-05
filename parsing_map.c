@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_map.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aboudoun <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/05 17:52:35 by aboudoun          #+#    #+#             */
+/*   Updated: 2022/03/05 17:53:22 by aboudoun         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
-static int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{
@@ -12,56 +24,43 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-void	map_check(char *filename, t_program *program, int fd)
+void	build_map(t_program *program, char *line)
 {
-	int len;
-	char *line;
+	int		i;
+	char	**array;
 
-	if (fd < 0 || ft_strcmp(".ber", &filename[ft_strlen(filename) - 4]))
-		exit_error(1);
-	program->map.column = 0;
+	i = 0;
+	program->map.column = program->map.column + 1;
+	array = malloc (sizeof(char *) * (program->map.column + 1));
+	if (!array)
+		exit_error(2);
+	while (program->map.map[i])
+	{
+		array[i] = program->map.map[i];
+		i++;
+	}
+	array[i] = line;
+	array[i + 1] = NULL;
+	free(program->map.map);
+	program->map.map = array;
+}
+
+void	parsing_map(char *filename, t_program *program, int fd)
+{
+	int		len;
+	char	*line;
+
 	line = get_next_line(fd);
 	program->map.row = ft_strlen(line) - 1;
 	while (line)
 	{
-		if (line[ft_strlen(line) + 1] == '\0')
-			len = ft_strlen(line);
-		else 
-			len = ft_strlen(line) - 1;
-		if (len != program->map.row)	
+		len = ft_strlen(line);
+		if (ft_strchr(line, '\n'))
+			len--;
+		if (len != program->map.row)
 			exit_error(1);
-		program->map.column += 1;
+		build_map (program, line);
 		line = get_next_line(fd);
 	}
-	close(fd);
-}
-
-void parsing_map(char *filename, t_program *program)
-{
-	int fd;
-	int i;
-	int j;
-	char *line;
-
-	i = -1;
-	fd = open(filename, O_RDONLY);
-	map_check(filename, program, fd);
-	program->map.map = malloc(sizeof(char *) * program->map.column);
-	if (!program -> map.map)
-		exit_error(2);
-	line = get_next_line(fd);
-	while (++i < program->map.column)
-	{
-		j = -1;
-		program->map.map[i] = malloc((sizeof(char) * program->map.row));
-		if (!program -> map.map)
-			exit_error(2);
-		while (j < program->map.row)
-			program->map.map[i][++j] = line[++j];
-		line = get_next_line(fd);
-	}
-
-// 	i = 0;
-// 	printf("%s", program->map.map[i]);
- 	close(fd);
+	close (fd);
 }
