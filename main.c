@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aboudoun <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:48:34 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 17:54:53 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:34:11 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_program	program;
 	int			fd;
-	int			i;
 
-	i = 0;
 	if (argc < 2)
 		exit_error(0);
 	fd = open(argv[1], O_RDONLY);
@@ -26,10 +24,5 @@ int	main(int argc, char **argv)
 		exit_error (1);
 	ft_initialize (&program);
 	parsing_map (argv[1], &program, fd);
-	while (program.map.map[i])
-	{
-		printf("%s", program.map.map[i]);
-		i++;
-	}
-// components_check(argv[1], &program);
+	check_component(&program);
 }

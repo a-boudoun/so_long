@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 18:01:28 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:01:29 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ typedef struct s_img
 typedef struct s_player{
 	int	x;
 	int	y;
-	int	count;
-}		t_player;
+	int position;
+} t_player;
 
 typedef struct s_map{
 	char	**map;
 	int		column;
 	int		row;
-}		t_map;
+	int		collectible;
+	int		exit;
+} t_map;
 
 typedef struct s_program{
 	t_map		map;
@@ -57,5 +59,6 @@ int		ft_strcmp(char *s1, char *s2);
 void	ft_initialize(t_program *program);
 void	parsing_map(char *filename, t_program *program, int fd);
 void	build_map(t_program *program, char *line);
+void	check_component(t_program *program);
 
 #endif

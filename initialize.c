@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aboudoun <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:47:40 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 17:48:16 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/05 19:05:28 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,7 @@ void	ft_initialize(t_program *program)
 	program->map.column = 0;
 	program->map.row = 0;
 	program->map.map = ft_calloc(sizeof(char *), 1);
+	program->map.collectible = 0;
+	program->map.exit = 0;
+	program->player.position = 0;
 }
