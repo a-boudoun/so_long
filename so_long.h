@@ -36,8 +36,8 @@ typedef struct s_img
 typedef struct s_player{
 	int	x;
 	int	y;
-	int position;
-} t_player;
+	int	position;
+}	t_player;
 
 typedef struct s_map{
 	char	**map;
@@ -45,7 +45,7 @@ typedef struct s_map{
 	int		row;
 	int		collectible;
 	int		exit;
-} t_map;
+}	t_map;
 
 typedef struct s_program{
 	t_map		map;
