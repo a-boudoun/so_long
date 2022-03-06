@@ -17,7 +17,7 @@ CFILES = main.c \
 		initialize.c \
 		check_component.c \
 
-FTPRINTF_DIR = ft_printf
+FTPRINTF_DIR = printf
 FTPRINTF_LIB = $(FTPRINTF_DIR)/ftprintf.a
 
 OBJ = $(CFILES:%.c=%.o)
