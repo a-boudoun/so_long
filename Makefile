@@ -19,6 +19,7 @@ CFILES = main.c \
 
 FTPRINTF_DIR = printf
 FTPRINTF_LIB = $(FTPRINTF_DIR)/ftprintf.a
+GET_NEXT_LINE_OBJ = get_next_line.o get_next_line_utils.o
 
 OBJ = $(CFILES:%.c=%.o)
 
@@ -40,8 +41,8 @@ clean:
 	@echo "$(RED)" "cleaning..."
 
 fclean : clean
-	@rm -rf $(NAME)
-	$(RM) $(FTPRINTF_LIB)
+	@rm -rf $(NAME) $(GET_NEXT_LINE_OBJ)
+	$(RM) $(FTPRINTF_LIB) 
 	@echo "$(RED)" "full cleaning..."
 
 re : fclean all

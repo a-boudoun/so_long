@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:48:34 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 19:34:11 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:30:15 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	main(int argc, char **argv)
 		exit_error (1);
 	ft_initialize (&program);
 	parsing_map (argv[1], &program, fd);
-	check_component(&program);
+	check_component (&program);
 }

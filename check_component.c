@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:48:54 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 20:16:31 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:19:55 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	valid_char(t_program *program, char c)
 {
-	if (c != '1' || c != '0' || c != 'C' || c != 'P' || c != 'E')
+	if (c != '1' && c != '0' && c != 'C' && c != 'P' && c != 'E')
 		exit_error(1);
 	if (c == 'C')
 		program->map.collectible += 1;
