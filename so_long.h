@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 19:01:29 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:19:47 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_map{
 }	t_map;
 
 typedef struct s_program{
+	void		*mlx;
 	t_map		map;
 	t_img		img;
 	t_player	player;
