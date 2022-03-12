@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:48:34 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/09 19:28:35 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/12 20:00:55 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,7 @@ int	main(int argc, char **argv)
 	ft_initialize (&program);
 	parsing_map (argv[1], &program, fd);
 	check_component (&program);
+	get_images(&program);
+	render_game(&program);
+	mlx_loop(program.mlx);
 }

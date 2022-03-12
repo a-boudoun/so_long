@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:47:40 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 19:05:28 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/12 20:27:14 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,25 @@ static void	*ft_calloc(size_t count, size_t size)
 
 void	ft_initialize(t_program *program)
 {
+	program->mlx = mlx_init();
+	program->mlx_win = mlx_new_window(program->mlx, 1920, 1080, "so_long");
 	program->map.column = 0;
 	program->map.row = 0;
 	program->map.map = ft_calloc(sizeof(char *), 1);
+	if (!program->map.map)
+		exit_error(2);
 	program->map.collectible = 0;
 	program->map.exit = 0;
 	program->player.position = 0;
+	program->player.x = 0;
+	program->player.y = 0;
+	program->img.player_down = NULL;
+	program->img.player_up = NULL;
+	program->img.player_left = NULL;
+	program->img.player_right = NULL;
+	program->img.collect = NULL;
+	program->img.exit_no = NULL;
+	program->img.exit_yes = NULL;
+	program->img.floor = NULL;
+	program->img.wall = NULL;
 }
