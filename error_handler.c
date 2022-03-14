@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aboudoun <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:46:49 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 17:47:32 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:40:28 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ void	exit_error(int error)
 		ft_printf("error \ninvalid map");
 	else if (error == 2)
 		ft_printf("error \nmalloc error");
+	else if (error == 3)
+		ft_printf("error \nmlx_init error");
 	exit(1);
 }

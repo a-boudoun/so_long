@@ -16,6 +16,8 @@ CFILES = main.c \
 		gnl/get_next_line_utils.c\
 		initialize.c \
 		check_component.c \
+		get_images.c \
+		render.c \
 
 FTPRINTF_DIR = printf
 FTPRINTF_LIB = $(FTPRINTF_DIR)/ftprintf.a
