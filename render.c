@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:10:03 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/15 19:01:14 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/15 19:50:31 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	render_player(t_program *program, int j, int i)
 	program->player.y = i;
 	// if (!program->player.position)
 	mlx_put_image_to_window(program->mlx, program->mlx_win,
-	 		program->img.collect, i * HEIGHT, j * WIDTH);
+		program->img.player_right, i * HEIGHT, j * WIDTH);
 	// else
 	// 	mlx_put_image_to_window(program->mlx, program->mlx_win,
 	// 		program->img.player_right, i * HEIGHT, j * WIDTH);
