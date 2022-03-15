@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:47:40 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/15 15:11:58 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:30:34 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	generate_window(t_program *program)
 	if (!(program->mlx))
 		exit_error(3);
 	//program->mlx_win = mlx_new_window(program->mlx, 1920, 1080, "so_long");
-	program->mlx_win = mlx_new_window(program->mlx, program->map.row * WIDTH, program->map.column * HEIGHT, "so_long");
+	program->mlx_win = mlx_new_window(program->mlx, program->map.row * WIDTH,
+			program->map.column * HEIGHT, "so_long");
 }

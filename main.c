@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:48:34 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/15 15:46:11 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:01:18 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	main(int argc, char **argv)
 	generate_window(&program);
 	get_images(&program);
 	render_game(&program);
- 	mlx_loop(program.mlx);
- }
+	mlx_loop(program.mlx);
+}
