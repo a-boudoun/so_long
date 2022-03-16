@@ -18,6 +18,7 @@ CFILES = main.c \
 		check_component.c \
 		get_images.c \
 		render.c \
+		moves.c \
 
 FTPRINTF_DIR = printf
 FTPRINTF_LIB = $(FTPRINTF_DIR)/ftprintf.a
