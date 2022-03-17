@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/16 20:08:08 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/17 15:43:38 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ typedef struct s_program{
 
 void	exit_error(int error);
 void	generate_window(t_program *program);
-int move(int key, t_program *program);
-void get_images(t_program *program);
+int 	moves(int key, t_program *program);
+void 	get_images(t_program *program);
 void	render_game(t_program *program);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_initialize(t_program *program);

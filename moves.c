@@ -98,7 +98,7 @@ void	move_up(t_program *program, int *count)
 	program->map.map [prow][pcol] = 'P';
 }
 
-int	move(int key, t_program *program)
+int	moves(int key, t_program *program)
 {
 	static int	i = 1;
 	int			count;
@@ -108,13 +108,13 @@ int	move(int key, t_program *program)
 	count = 0;
 	prow = program->player.x;
 	pcol = program->player.y;
-	if (key == RIGHT || key == D && program->map.map[prow][pcol + 1] != '1')
+	if ((key == RIGHT || key == D) && program->map.map[prow][pcol + 1] != '1')
 		move_right(program, &count);
-	if (key == LEFT || key == A && program->map.map[prow][pcol - 1] != '1')
+	if ((key == LEFT || key == A )&& program->map.map[prow][pcol - 1] != '1')
 		move_left(program, &count);
-	if (key == DOWN || key == S && program->map.map[prow + 1][pcol] != '1')
+	if ((key == DOWN || key == S )&& program->map.map[prow + 1][pcol] != '1')
 		move_down(program, &count);
-	if (key == UP || key == W && program->map.map[prow - 1][pcol] != '1')
+	if ((key == UP || key == W )&& program->map.map[prow - 1][pcol] != '1')
 		move_up(program, &count);
 	if (key == ESC)
 		exit_error(6);
