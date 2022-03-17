@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/17 15:43:38 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:04:12 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include "gnl/get_next_line.h"
 # include "printf/ft_printf.h"
+# include <stdbool.h>
 
 typedef struct s_img
 {

@@ -1,125 +1,70 @@
 #include"so_long.h"
 
-void	move_right(t_program *program, int *count)
+void move_right(t_program *program, bool *trigger)
 {
-	int	prow;
-	int	pcol;
+	int x;
+	int y;
 
-	prow = program->player.x;
-	pcol = program->player.y;
-	if (program->map.map[prow][pcol + 1] == 'E')
+	x = program->player.x;
+	y = program->player.y;
+	if (program->map.map[x + 1][y] == 'C')
 	{
-		if (program->map.collectible == 0)
-			exit_error(2);
-		return ;
+		
 	}
-	program->player.position = 1;
-	*count = 1;
-	program->map.map[prow][pcol] = '0';
-	pcol += 1;
-	if (program->map.map[prow][pcol] == 'C')
-	{
-		program->map.map[prow][pcol] = '0';
-		program->map.collectible -= 1;
-	}
-	program->map.map[prow][pcol] = 'P';
+
 }
 
-void	move_left(t_program *program, int *count)
+void move_left(t_program *program, bool *trigger)
 {
-	int	prow;
-	int	pcol;
+	int x;
+	int y;
 
-	prow = program->player.x;
-	pcol = program->player.y;
-	if (program->map.map[prow][pcol - 1] == 'E')
-	{
-		if (program->map.collectible == 0)
-			exit_error(2);
-		return ;
-	}
-	program->player.position = 0;
-	*count = 1;
-	program->map.map[prow][pcol] = '0';
-	pcol -= 1;
-	if (program->map.map[prow][pcol] == 'C')
-	{
-		program->map.map[prow][pcol] = '0';
-		program->map.collectible -= 1;
-	}
-	program->map.map [prow][pcol] = 'P';
+	x = program->player.x;
+	y = program->player.y;
+
 }
 
-void	move_down(t_program *program, int *count)
+void move_down(t_program *program, bool *trigger)
 {
-	int	prow;
-	int	pcol;
+	int x;
+	int y;
 
-	prow = program->player.x;
-	pcol = program->player.y;
-	if (program->map.map[prow + 1][pcol] == 'E')
-	{
-		if (program->map.collectible == 0)
-			exit_error(2);
-		return ;
-	}
-	*count = 1;
-	program->map.map[prow][pcol] = '0';
-	prow += 1;
-	if (program->map.map[prow][pcol] == 'C')
-	{
-		program->map.map[prow][pcol] = '0';
-		program->map.collectible -= 1;
-	}
-	program->map.map [prow][pcol] = 'P';
+	x = program->player.x;
+	y = program->player.y;
+
 }
 
-void	move_up(t_program *program, int *count)
+void move_up(t_program *program, bool *trigger)
 {
-	int	prow;
-	int	pcol;
+	int x;
+	int y;
 
-	prow = program->player.x;
-	pcol = program->player.y;
-	if (program->map.map[prow - 1][pcol] == 'E')
-	{
-		if (program->map.collectible == 0)
-			exit_error(2);
-		return ;
-	}
-	*count = 1;
-	program->map.map[prow][pcol] = '0';
-	prow -= 1;
-	if (program->map.map[prow][pcol] == 'C')
-	{
-		program->map.map[prow][pcol] = '0';
-		program->map.collectible -= 1;
-	}
-	program->map.map [prow][pcol] = 'P';
+	x = program->player.x;
+	y = program->player.y;
+
 }
 
-int	moves(int key, t_program *program)
+int moves(int key, t_program *program)
 {
-	static int	i = 1;
-	int			count;
-	int			prow;
-	int			pcol;
+	static int moves = 1;
+	bool trigger;
+	int x;
+	int y;
 
-	count = 0;
-	prow = program->player.x;
-	pcol = program->player.y;
-	if ((key == RIGHT || key == D) && program->map.map[prow][pcol + 1] != '1')
-		move_right(program, &count);
-	if ((key == LEFT || key == A )&& program->map.map[prow][pcol - 1] != '1')
-		move_left(program, &count);
-	if ((key == DOWN || key == S )&& program->map.map[prow + 1][pcol] != '1')
-		move_down(program, &count);
-	if ((key == UP || key == W )&& program->map.map[prow - 1][pcol] != '1')
-		move_up(program, &count);
-	if (key == ESC)
-		exit_error(6);
-	if (count)
-		printf("Moves: [%d]\n", i++);
+	x = program->player.x;
+	y = program->player.y;
+	trigger = false;
+
+	if ((key == W || key == UP) && program->map.map[x][y - 1] != 1)
+		move_up(program, &trigger);
+	if ((key == A || key == RIGHT) && program->map.map[x + 1][y] != 1)
+		move_right(program, &trigger);
+	if ((key == S || key == DOWN) && program->map.map[x][y + 1] != 1)
+		move_down(program, &trigger);
+	if ((key == D || key == LEFT) && program->map.map[x - 1][y] != 1)
+		move_left(program, &trigger);
+	if (trigger)
+		ft_printf("moves : %d\n", moves++);
 	render_game(program);
 	return (1);
 }
