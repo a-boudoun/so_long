@@ -74,8 +74,8 @@ typedef struct s_program{
 
 void	exit_error(int error);
 void	generate_window(t_program *program);
-int 	moves(int key, t_program *program);
-void 	get_images(t_program *program);
+int		moves(int key, t_program *program);
+void	get_images(t_program *program);
 void	render_game(t_program *program);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_initialize(t_program *program);

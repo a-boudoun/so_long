@@ -16,12 +16,18 @@ void	render_player(t_program *program, int j, int i)
 {
 	program->player.x = j;
 	program->player.y = i;
-	// if (!program->player.position)
-	mlx_put_image_to_window(program->mlx, program->mlx_win,
-		program->img.player_right, i * HEIGHT, j * WIDTH);
-	/* else
-	 	mlx_put_image_to_window(program->mlx, program->mlx_win,
-	 		program->img.player_right, i * HEIGHT, j * WIDTH);*/
+	if (program->player.position == 1)
+		mlx_put_image_to_window(program->mlx, program->mlx_win,
+			program->img.player_right, i * HEIGHT, j * WIDTH);
+	else if (program->player.position == 2)
+		mlx_put_image_to_window(program->mlx, program->mlx_win,
+			program->img.player_left, i * HEIGHT, j * WIDTH);
+	else if (program->player.position == 3)
+		mlx_put_image_to_window(program->mlx, program->mlx_win,
+			program->img.player_down, i * HEIGHT, j * WIDTH);
+	else if (program->player.position == 4)
+		mlx_put_image_to_window(program->mlx, program->mlx_win,
+			program->img.player_up, i * HEIGHT, j * WIDTH);
 }
 
 void	render_exit(t_program *program, int j, int i)

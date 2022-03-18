@@ -17,14 +17,14 @@ void	player_images(t_program *program)
 	int	img_height;
 	int	img_width;
 
-// 	program->img.player_down = mlx_png_file_to_image(program->mlx,
-//			"images/player_down.png", &img_width, &img_height);
-// 	program->img.player_up = mlx_png_file_to_image(program->mlx,
-//			"images/player_up.png", &img_width, &img_height);
+	program->img.player_down = mlx_xpm_file_to_image(program->mlx,
+			"images/player_down.xpm", &img_width, &img_height);
+	program->img.player_up = mlx_xpm_file_to_image(program->mlx,
+			"images/player_up.xpm", &img_width, &img_height);
 	program->img.player_right = mlx_xpm_file_to_image(program->mlx,
 			"images/player.xpm", &img_width, &img_height);
-	// program->img.player_left = mlx_xpm_file_to_image(program->mlx,
-	// 		"images/player_left.xpm", &img_width, &img_height);
+	program->img.player_left = mlx_xpm_file_to_image(program->mlx,
+			"images/player_left.xpm", &img_width, &img_height);
 }
 
 void	exit_images(t_program *program)

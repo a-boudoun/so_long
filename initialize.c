@@ -61,7 +61,6 @@ void	generate_window(t_program *program)
 	program->mlx = mlx_init();
 	if (!(program->mlx))
 		exit_error(3);
-	//program->mlx_win = mlx_new_window(program->mlx, 1920, 1080, "so_long");
 	program->mlx_win = mlx_new_window(program->mlx, program->map.row * WIDTH,
 			program->map.column * HEIGHT, "so_long");
 }
