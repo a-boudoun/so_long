@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:11:22 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/15 19:54:29 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/18 16:48:19 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	player_images(t_program *program)
 	int	img_height;
 	int	img_width;
 
-	program->img.player_down = mlx_xpm_file_to_image(program->mlx,
-			"images/player_down.xpm", &img_width, &img_height);
-	program->img.player_up = mlx_xpm_file_to_image(program->mlx,
-			"images/player_up.xpm", &img_width, &img_height);
 	program->img.player_right = mlx_xpm_file_to_image(program->mlx,
-			"images/player.xpm", &img_width, &img_height);
-	program->img.player_left = mlx_xpm_file_to_image(program->mlx,
-			"images/player_left.xpm", &img_width, &img_height);
+			"images/player_right.xpm", &img_width, &img_height);
+	// program->img.player_down = mlx_xpm_file_to_image(program->mlx,
+	// 		"images/player_down.xpm", &img_width, &img_height);
+	// program->img.player_up = mlx_xpm_file_to_image(program->mlx,
+	// 		"images/player_up.xpm", &img_width, &img_height);
+	// program->img.player_left = mlx_xpm_file_to_image(program->mlx,
+	// 		"images/player_left.xpm", &img_width, &img_height);
 }
 
 void	exit_images(t_program *program)

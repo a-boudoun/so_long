@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:10:03 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/15 21:35:38 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/18 18:08:55 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	render_player(t_program *program, int j, int i)
 {
-	program->player.x = j;
-	program->player.y = i;
-	if (program->player.position == 1)
+	program->player.x = i;
+	program->player.y = j;
+//	if (program->player.position == 1)
 		mlx_put_image_to_window(program->mlx, program->mlx_win,
 			program->img.player_right, i * HEIGHT, j * WIDTH);
-	else if (program->player.position == 2)
-		mlx_put_image_to_window(program->mlx, program->mlx_win,
-			program->img.player_left, i * HEIGHT, j * WIDTH);
-	else if (program->player.position == 3)
-		mlx_put_image_to_window(program->mlx, program->mlx_win,
-			program->img.player_down, i * HEIGHT, j * WIDTH);
-	else if (program->player.position == 4)
-		mlx_put_image_to_window(program->mlx, program->mlx_win,
-			program->img.player_up, i * HEIGHT, j * WIDTH);
+	// else if (program->player.position == 2)
+	// 	mlx_put_image_to_window(program->mlx, program->mlx_win,
+	// 		program->img.player_left, i * HEIGHT, j * WIDTH);
+	// else if (program->player.position == 3)
+	// 	mlx_put_image_to_window(program->mlx, program->mlx_win,
+	// 		program->img.player_down, i * HEIGHT, j * WIDTH);
+	// else if (program->player.position == 4)
+	// 	mlx_put_image_to_window(program->mlx, program->mlx_win,
+	// 		program->img.player_up, i * HEIGHT, j * WIDTH);
 }
 
 void	render_exit(t_program *program, int j, int i)
@@ -75,16 +75,3 @@ void	render_game(t_program *program)
 		j++;
 	}
 }
-		//	render_map(program, j, 0);
-		// render_map(program, j, 1);
-		// render_map(program, j, 2);
-		// render_map(program, j, 3);
-		// render_map(program, j, 4);
-		// render_map(program, j, 5);
-		// render_map(program, j, 6);
-		// render_map(program, j, 7);
-		// render_map(program, j, 8);
-		// render_map(program, j, 9);
-		// render_map(program, j, 10);
-		// render_map(program, j, 11);
-		// render_map(program, j, 12);
