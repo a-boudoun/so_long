@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:52:35 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/05 18:31:00 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:00:50 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	build_map(t_program *program, char *line)
 	program->map.column = program->map.column + 1;
 	array = malloc (sizeof(char *) * (program->map.column + 1));
 	if (!array)
-		exit_error(2);
+		exit_error(2, program);
 	while (program->map.map[i])
 	{
 		array[i] = program->map.map[i];
@@ -58,7 +58,7 @@ void	parsing_map(char *filename, t_program *program, int fd)
 		if (ft_strchr(line, '\n'))
 			len--;
 		if (len != program->map.row)
-			exit_error(1);
+			exit_error(1, program);
 		build_map (program, line);
 		line = get_next_line(fd);
 	}

@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/18 18:08:40 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/18 18:56:57 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_program{
 # define LEFT 123
 # define RIGHT 124
 
-void	exit_error(int error);
+void	exit_error(int error, t_program *program);
 void	generate_window(t_program *program);
 int		moves(int key, t_program *program);
 void	get_images(t_program *program);

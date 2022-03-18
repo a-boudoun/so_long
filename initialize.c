@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:47:40 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/15 18:30:34 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:01:13 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_initialize(t_program *program)
 	program->map.row = 0;
 	program->map.map = ft_calloc(sizeof(char *), 1);
 	if (!program->map.map)
-		exit_error(2);
+		exit_error(2, program);
 	program->map.collectible = 0;
 	program->map.exit = 0;
 	program->player.position = 0;
@@ -60,7 +60,7 @@ void	generate_window(t_program *program)
 {	
 	program->mlx = mlx_init();
 	if (!(program->mlx))
-		exit_error(3);
+		exit_error(3, program);
 	program->mlx_win = mlx_new_window(program->mlx, program->map.row * WIDTH,
 			program->map.column * HEIGHT, "so_long");
 }
