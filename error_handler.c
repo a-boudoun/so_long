@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:46:49 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/19 19:03:26 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/19 19:52:33 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	destroy_images(t_program *program)
 		mlx_destroy_image(program->mlx, program->img.wall);
 	if (program->img.floor)
 		mlx_destroy_image(program->mlx, program->img.floor);
- }
+}
 
 static void	ft_free(t_program *program)
 {
@@ -61,7 +61,6 @@ void	exit_error(int error, t_program *program)
 		ft_printf("error \nmlx_init error");
 	else if (error == 4)
 		ft_printf("you win\n");
-	
 	ft_free(program);
 	destroy_images(program);
 	exit(1);
