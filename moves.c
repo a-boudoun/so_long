@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:07:51 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/18 20:49:51 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/19 14:19:41 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ void	move_right(t_program *program, bool *trigger)
 
 	x = program->player.x;
 	y = program->player.y;
-	if (program->map.map[y][x + 1] == 'E' && program->map.collectible == 0)
-		exit_error(2, program);
+	if (program->map.map[y][x + 1] == 'E')
+	{
+		if (program->map.collectible == 0)
+			exit_error(4, program);
+		return ;
+	}
 	program->player.position = 1;
 	program->map.map[y][x] = '0';
 	x++;
@@ -40,8 +44,12 @@ void	move_left(t_program *program, bool *trigger)
 
 	x = program->player.x;
 	y = program->player.y;
-	if (program->map.map[y][x - 1] == 'E' && program->map.collectible == 0)
-		exit_error(2, program);
+	if (program->map.map[y][x - 1] == 'E')
+	{
+		if (program->map.collectible == 0)
+			exit_error(4, program);
+		return ;
+	}
 	program->player.position = 2;
 	program->map.map[y][x] = '0';
 	x--;
@@ -61,8 +69,12 @@ void	move_down(t_program *program, bool *trigger)
 
 	x = program->player.x;
 	y = program->player.y;
-	if (program->map.map[y + 1][x] == 'E' && program->map.collectible == 0)
-		exit_error(2, program);
+	if (program->map.map[y + 1][x] == 'E')
+	{
+		if (program->map.collectible == 0)
+			exit_error(4, program);
+		return ;
+	}
 	program->player.position = 3;
 	program->map.map[y][x] = '0';
 	y++;
@@ -82,8 +94,12 @@ void	move_up(t_program *program, bool *trigger)
 
 	x = program->player.x;
 	y = program->player.y;
-	if (program->map.map[y - 1][x] == 'E' && program->map.collectible == 0)
-		exit_error(2, program);
+	if (program->map.map[y - 1][x] == 'E')
+	{
+		if (program->map.collectible == 0)
+			exit_error(4, program);
+		return ;
+	}
 	program->player.position = 4;
 	program->map.map[y][x] = '0';
 	y--;
