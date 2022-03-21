@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map.c                                      :+:      :+:    :+:   */
+/*   parsing_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:52:35 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 17:28:37 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:28:23 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -51,7 +51,7 @@ void	parsing_map(char *filename, t_program *program, int fd)
 	char	*line;
 
 	line = get_next_line(fd);
-	if(!line)
+	if (!line)
 		exit_error(1, program);
 	program->map.row = ft_strlen(line) - 1;
 	while (line)

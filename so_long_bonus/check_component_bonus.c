@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_component.c                                  :+:      :+:    :+:   */
+/*   check_component_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:48:54 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 18:23:57 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:14:57 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
 static void	valid_char(t_program *program, char c)
 {
-	if (c != '1' && c != '0' && c != 'C' && c != 'P' && c != 'E')
+	if (c != '1' && c != '0' && c != 'C' && c != 'P' && c != 'E' && c != 'I')
 		exit_error(1, program);
 	if (c == 'C')
 		program->map.collectible += 1;

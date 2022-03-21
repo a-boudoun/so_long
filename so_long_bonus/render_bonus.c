@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:10:03 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 17:06:31 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:28:47 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"so_long_bonus.h"
 
 void	render_player(t_program *program, int j, int i)
 {
@@ -53,8 +53,21 @@ void	render_map(t_program *program, int j, int i)
 	if (program->map.map[j][i] == 'C')
 		mlx_put_image_to_window(program->mlx, program->mlx_win,
 			program->img.collect, i * HEIGHT, j * WIDTH);
+	if (program->map.map[j][i] == 'I')
+		mlx_put_image_to_window(program->mlx, program->mlx_win,
+			program->img.imposter, i * HEIGHT, j * WIDTH);
 	if (program->map.map[j][i] == 'E')
 		render_exit(program, j, i);
+}
+
+void	put_moves(t_program *program, int mv)
+{
+	char	*moves;
+
+	moves = ft_itoa(mv);
+	mlx_string_put(program->mlx, program->mlx_win, 1, 0, GREEN, "Moves : ");
+	mlx_string_put(program->mlx, program->mlx_win, 80, 0, GREEN, moves);
+	free(moves);
 }
 
 void	render_game(t_program *program)
@@ -73,4 +86,5 @@ void	render_game(t_program *program)
 		}
 		j++;
 	}
+	put_moves(program, program->moves);
 }
