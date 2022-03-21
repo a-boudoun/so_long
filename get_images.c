@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:11:22 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/19 19:17:53 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 21:43:25 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,6 @@ void	map_images(t_program *program)
 
 void	get_images(t_program *program)
 {
-	int	img_height;
-	int	img_width;
-
 	map_images(program);
 	player_images(program);
 	exit_images(program);

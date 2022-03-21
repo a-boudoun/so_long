@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:52:35 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 17:28:37 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 21:43:44 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	build_map(t_program *program, char *line)
 	program->map.map = array;
 }
 
-void	parsing_map(char *filename, t_program *program, int fd)
+void	parsing_map(t_program *program, int fd)
 {
 	int		len;
 	char	*line;

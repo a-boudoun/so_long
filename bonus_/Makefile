@@ -30,10 +30,10 @@ OBJ = $(CFILES:%.c=%.o)
 all : $(NAME)
 
 $(NAME): $(OBJ) $(FTPRINTF_LIB)
-	@$(CC) $(CFLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) -o $@ $(CFILES)
+	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) -o $@ $(CFILES)
 
 %.o : %.c 
-	@$(CC) $(CFLAGS) $^ -c 
+	@$(CC) $(FLAGS) $^ -c 
 	@echo "$(GREEN)" "compiling $<"
 
 $(FTPRINTF_LIB):
@@ -41,12 +41,11 @@ $(FTPRINTF_LIB):
 
 clean:
 	@rm -rf $(OBJ)
-	$(MAKE) clean -C $(FTPRINTF_DIR)
 	@echo "$(RED)" "cleaning..."
 
 fclean : clean
 	@rm -rf $(NAME) $(GET_NEXT_LINE_OBJ)
-	$(RM) $(FTPRINTF_LIB) 
+	rm	$(FTPRINTF_LIB) 
 	@echo "$(RED)" "full cleaning..."
 
 re : fclean all

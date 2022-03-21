@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:07:51 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 18:22:28 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 21:48:54 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ void	move_up(t_program *program, bool *trigger)
 
 int	moves(int key, t_program *program)
 {
-	static int	moves = 1;
 	bool		trigger;
 	int			x;
 	int			y;
