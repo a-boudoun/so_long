@@ -12,8 +12,6 @@ MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 CFILES = main.c \
 		parsing_map.c \
 		error_handler.c \
-		gnl/get_next_line.c \
-		gnl/get_next_line_utils.c\
 		initialize.c \
 		check_component.c \
 		get_images.c \

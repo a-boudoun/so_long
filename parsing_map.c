@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:52:35 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 21:43:44 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 23:29:18 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	parsing_map(t_program *program, int fd)
 	char	*line;
 
 	line = get_next_line(fd);
-	if(!line)
+	if (!line)
 		exit_error(1, program);
 	program->map.row = ft_strlen(line) - 1;
 	while (line)

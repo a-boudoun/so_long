@@ -30,7 +30,7 @@ OBJ = $(CFILES:%.c=%.o)
 all : $(NAME)
 
 $(NAME): $(OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
-	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) -o $@ $(CFILES)
+	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $@ $(CFILES)
 
 %.o : %.c 
 	@$(CC) $(FLAGS) $^ -c 

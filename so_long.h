@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 21:43:58 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/21 23:29:30 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_program{
 
 # define HEIGHT 40
 # define WIDTH 40
-
 
 # define W 13
 # define S 1
