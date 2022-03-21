@@ -12,8 +12,6 @@ MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 CFILES = main_bonus.c \
 		parsing_map_bonus.c \
 		error_handler_bonus.c \
-		../gnl/get_next_line.c \
-		../gnl/get_next_line_utils.c\
 		initialize_bonus.c \
 		check_component_bonus.c \
 		ft_itoa.c \
@@ -22,14 +20,16 @@ CFILES = main_bonus.c \
 		moves_bonus.c \
 
 FTPRINTF_DIR = ../printf
+GETNEXTLINE_DIR = ../gnl
+
 FTPRINTF_LIB = $(FTPRINTF_DIR)/ftprintf.a
-GET_NEXT_LINE_OBJ = get_next_line.o get_next_line_utils.o
+GETNEXTLINE_LIB = $(GETNEXTLINE_DIR)/nextline.a
 
 OBJ = $(CFILES:%.c=%.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJ) $(FTPRINTF_LIB)
+$(NAME): $(OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
 	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) -o $@ $(CFILES)
 
 %.o : %.c 
@@ -39,13 +39,16 @@ $(NAME): $(OBJ) $(FTPRINTF_LIB)
 $(FTPRINTF_LIB):
 	$(MAKE) -C $(FTPRINTF_DIR)
 
+$(GETNEXTLINE_LIB):
+	$(MAKE) -C $(GETNEXTLINE_DIR)
+
 clean:
 	@rm -rf $(OBJ)
 	@echo "$(RED)" "cleaning..."
 
 fclean : clean
-	@rm -rf $(NAME) $(GET_NEXT_LINE_OBJ)
-	rm	$(FTPRINTF_LIB) 
+	@rm -rf $(NAME)
+	@rm	$(FTPRINTF_LIB) $()
 	@echo "$(RED)" "full cleaning..."
 
 re : fclean all
