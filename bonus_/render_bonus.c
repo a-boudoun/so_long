@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:10:03 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 18:28:47 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:26:59 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	put_moves(t_program *program, int mv)
 
 	moves = ft_itoa(mv);
 	mlx_string_put(program->mlx, program->mlx_win, 1, 0, GREEN, "Moves : ");
-	mlx_string_put(program->mlx, program->mlx_win, 80, 0, GREEN, moves);
+	mlx_string_put(program->mlx, program->mlx_win, 90, 0, GREEN, moves);
 	free(moves);
 }
 

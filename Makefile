@@ -36,8 +36,8 @@ $(NAME): $(OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
 bonus : 
 	@$(MAKE) -C $(SOLONG_BO_DIR)
 
-%.o : %.c 	so_long_bonus.h
-	@$(CC) $(CFLAGS) $^ -c 
+%.o : %.c so_long.h
+	@$(CC) $(CFLAGS) -c $^ 
 	@echo "$(GREEN)" "compiling $<"
 
 $(GETNEXTLINE_LIB):
@@ -54,7 +54,7 @@ clean:
 	@echo "$(RED)" "cleaning..."
 
 fclean : clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) *.gch
 	@$(MAKE) fclean -C $(SOLONG_BO_DIR)
 	@$(MAKE) fclean -C $(FTPRINTF_DIR)
 	@$(MAKE) fclean -C $(GETNEXTLINE_DIR)

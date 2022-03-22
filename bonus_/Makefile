@@ -32,8 +32,8 @@ all : $(NAME)
 $(NAME): $(OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
 	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $@ $(CFILES)
 
-%.o : %.c 
-	@$(CC) $(FLAGS) $^ -c 
+%.o : %.c so_long_bonus.h
+	@$(CC) $(FLAGS) -c $^ 
 	@echo "$(GREEN)" "compiling $<"
 
 $(FTPRINTF_LIB):
@@ -47,7 +47,7 @@ clean:
 	@echo "$(RED)" "cleaning..."
 
 fclean : clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) *.gch
 	@rm	$(FTPRINTF_LIB) $()
 	@echo "$(RED)" "full cleaning..."
 
