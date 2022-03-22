@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:46:49 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/19 21:44:28 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/22 21:15:48 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ static void	ft_free(t_program *program)
 void	exit_error(int error, t_program *program)
 {
 	if (error == 0)
-		ft_printf("error \nusage: <./so_long> <map.ber>");
+		ft_printf("quit successfully\n");
 	else if (error == 1)
 		ft_printf("error \ninvalid map");
 	else if (error == 2)
 		ft_printf("error \nmalloc error");
 	else if (error == 3)
-		ft_printf("error \nmlx_init error");
+		ft_printf("error \nmlx_init() error");
 	else if (error == 4)
 		ft_printf("you win\n");
 	ft_free(program);
