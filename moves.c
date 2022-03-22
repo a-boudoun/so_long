@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:07:51 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/19 14:19:41 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/22 16:15:35 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,8 @@ int	moves(int key, t_program *program)
 		move_down(program, &trigger);
 	if ((key == D || key == LEFT) && program->map.map[y][x - 1] != '1')
 		move_left(program, &trigger);
+	if (key == ESC)
+		exit_error(0, program);
 	if (trigger)
 		ft_printf("moves : %d\n", moves++);
 	render_game(program);
