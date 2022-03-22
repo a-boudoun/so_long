@@ -4,12 +4,18 @@ GREEN=$'\x1b[32m
 PURPLE=$'\x1b[35m
 
 NAME = so_long
+BONUS = so_long_bonus
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 
-CFILES = main.c \
+HEADER = so_long.h
+PREC_HEADER = so_long.h.gch
+BONUS_HEADER = /bonus_/so_long_bonus.h
+BON_PREC_HEADER = /bonus/so_long_bonus.h.gch
+
+MAND_FILES = main.c \
 		parsing_map.c \
 		error_handler.c \
 		initialize.c \
@@ -18,26 +24,35 @@ CFILES = main.c \
 		render.c \
 		moves.c \
 
+BON_FILES = ./bonus_/main_bonus.c \
+		./bonus_/parsing_map_bonus.c \
+		./bonus_/error_handler_bonus.c \
+		./bonus_/initialize_bonus.c \
+		./bonus_/check_component_bonus.c \
+		./bonus_/ft_itoa.c \
+		./bonus_/get_images_bonus.c \
+		./bonus_/render_bonus.c \
+		./bonus_/moves_bonus.c \
+
 FTPRINTF_DIR = printf
 GETNEXTLINE_DIR = gnl
-SOLONG_BO_DIR = bonus_
 
 FTPRINTF_LIB = $(FTPRINTF_DIR)/ftprintf.a
 GETNEXTLINE_LIB = $(GETNEXTLINE_DIR)/nextline.a
-SOLONG_B_EX = $(SOLONG_BO_DIR)/so_long_bonus
 
-OBJ = $(CFILES:%.c=%.o)
+MAND_OBJ = $(MAND_FILES:%.c=%.o)
+BON_OBJ = $(BON_FILES:%.c=%.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
-	@$(CC) $(CFLAGS) $(MLX_FLAG)  $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $@ $(CFILES)
+$(NAME): $(MAND_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
+	@$(CC) $(FLAGS) $(MLX_FLAG)  $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $@ $(MAND_FILES)
 
-bonus : 
-	@$(MAKE) -C $(SOLONG_BO_DIR)
+bonus : $(BON_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
+	@$(CC) $(FLAGS) $(MLX_FLAG)  $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $(BONUS) $(BON_FILES)
 
-%.o : %.c so_long.h
-	@$(CC) $(CFLAGS) -c $^ 
+%.o : %.c $(BONUS_HEADER) $(HEADER)
+	@$(CC) $(FLAGS) -c $^ 
 	@echo "$(GREEN)" "compiling $<"
 
 $(GETNEXTLINE_LIB):
@@ -47,15 +62,13 @@ $(FTPRINTF_LIB):
 	@$(MAKE) -C $(FTPRINTF_DIR)
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(MAND_OBJ) $(BON_OBJ) $(PREC_HEADER) $(BON_PREC_HEADER)
 	@$(MAKE) clean -C $(FTPRINTF_DIR)
 	@$(MAKE) clean -C $(GETNEXTLINE_DIR)
-	@$(MAKE) clean -C $(SOLONG_BO_DIR)
 	@echo "$(RED)" "cleaning..."
 
 fclean : clean
-	@rm -rf $(NAME) *.gch
-	@$(MAKE) fclean -C $(SOLONG_BO_DIR)
+	@rm -rf $(NAME) $(BONUS)
 	@$(MAKE) fclean -C $(FTPRINTF_DIR)
 	@$(MAKE) fclean -C $(GETNEXTLINE_DIR)
 	@echo "$(RED)" "full cleaning..."

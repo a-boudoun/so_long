@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:48:34 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 21:43:50 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:20:34 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	main(int argc, char **argv)
 	int			fd;
 
 	if (argc < 2)
-		exit_error(0, &program);
+	{
+		ft_printf("error \nusage: <./so_long> <map.ber>");
+		exit(1);
+	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0 || ft_strcmp (".ber", &argv[1][ft_strlen(argv[1]) - 4]))
 		exit_error (1, &program);
