@@ -12,7 +12,7 @@ MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 
 HEADER = so_long.h
 PREC_HEADER = so_long.h.gch
-BONUS_HEADER = /bonus_/so_long_bonus.h
+BONUS_HEADER = /bonus/so_long_bonus.h
 BON_PREC_HEADER = /bonus/so_long_bonus.h.gch
 
 MAND_FILES = main.c \
@@ -24,15 +24,15 @@ MAND_FILES = main.c \
 		render.c \
 		moves.c \
 
-BON_FILES = ./bonus_/main_bonus.c \
-		./bonus_/parsing_map_bonus.c \
-		./bonus_/error_handler_bonus.c \
-		./bonus_/initialize_bonus.c \
-		./bonus_/check_component_bonus.c \
-		./bonus_/ft_itoa.c \
-		./bonus_/get_images_bonus.c \
-		./bonus_/render_bonus.c \
-		./bonus_/moves_bonus.c \
+BON_FILES = ./bonus/main_bonus.c \
+		./bonus/parsing_map_bonus.c \
+		./bonus/error_handler_bonus.c \
+		./bonus/initialize_bonus.c \
+		./bonus/check_component_bonus.c \
+		./bonus/ft_itoa.c \
+		./bonus/get_images_bonus.c \
+		./bonus/render_bonus.c \
+		./bonus/moves_bonus.c \
 
 FTPRINTF_DIR = printf
 GETNEXTLINE_DIR = gnl
@@ -48,7 +48,9 @@ all : $(NAME)
 $(NAME): $(MAND_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
 	@$(CC) $(FLAGS) $(MLX_FLAG)  $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $@ $(MAND_FILES)
 
-bonus : $(BON_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
+bonus : $(BONUS)
+
+$(BONUS): $(BON_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
 	@$(CC) $(FLAGS) $(MLX_FLAG)  $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $(BONUS) $(BON_FILES)
 
 %.o : %.c $(BONUS_HEADER) $(HEADER)
@@ -76,4 +78,4 @@ fclean : clean
 re : fclean all
 	@echo "$(PURPLE)" "remaking"
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re bonus

@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:07:51 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/22 16:15:35 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:21:01 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ void	move_up(t_program *program, bool *trigger)
 
 int	moves(int key, t_program *program)
 {
-	static int	moves = 1;
 	bool		trigger;
 	int			x;
 	int			y;
@@ -133,7 +132,7 @@ int	moves(int key, t_program *program)
 	if (key == ESC)
 		exit_error(0, program);
 	if (trigger)
-		ft_printf("moves : %d\n", moves++);
+		ft_printf("moves : %d\n", program->moves++);
 	render_game(program);
 	return (1);
 }

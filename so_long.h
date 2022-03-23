@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/22 15:51:57 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:22:44 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_map{
 	char	**map;
 	int		column;
 	int		row;
-	int		count;
 	int		collectible;
 	int		exit;
 }	t_map;
@@ -56,6 +55,7 @@ typedef struct s_program{
 	t_map		map;
 	t_img		img;
 	t_player	player;
+	int			moves;
 
 }		t_program;
 
