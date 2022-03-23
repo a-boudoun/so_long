@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:46:49 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/23 16:34:50 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:24:37 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	exit_error(int error, t_program *program)
 	else if (error == 2)
 		ft_printf("error \nmalloc error");
 	else if (error == 3)
-		ft_printf("error \ninitialization failed");
+		ft_printf("error \nMLX library initialization failed");
 	else if (error == 4)
 		ft_printf("you win\n");
 	ft_free(program);
