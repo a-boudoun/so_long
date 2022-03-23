@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:32:54 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/22 21:16:10 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:35:04 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	exit_error(int error, t_program *program)
 	else if (error == 2)
 		ft_printf("error \nmalloc error");
 	else if (error == 3)
-		ft_printf("error \nmlx_init() error");
+		ft_printf("error \ninitialization failed");
 	else if (error == 5)
 		ft_printf("you lost\n");
 	else if (error == 4)

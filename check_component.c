@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 18:48:54 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/21 18:23:57 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:16:54 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	valid_char(t_program *program, char c)
 
 static void	check_chars(t_program *program)
 {
-	if (program->map.collectible == 0 || program->player.position == 0
+	if (program->map.collectible == 0 || program->player.position != 1
 		|| program->map.exit == 0)
 		exit_error(1, program);
 }
