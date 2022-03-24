@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:32:54 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/23 18:24:28 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:24:29 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,15 @@ void	exit_error(int error, t_program *program)
 		ft_printf("error \nmalloc error");
 	else if (error == 3)
 		ft_printf("error \nMLX library initialization failed");
-	else if (error == 5)
-		ft_printf("you lost\n");
 	else if (error == 4)
 		ft_printf("you win\n");
+	else if (error == 5)
+		ft_printf("you lost\n");
+	else if (error == 6)
+	{
+		ft_printf("error\ninvalide file");
+		exit(1);
+	}
 	ft_free(program);
 	destroy_images(program);
 	exit(1);
