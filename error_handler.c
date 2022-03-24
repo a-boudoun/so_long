@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:46:49 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/24 14:22:43 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/24 21:20:17 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,30 @@ static void	ft_free(t_program *program)
 		free(program->map.map);
 }
 
+void	exit_success(int nb, t_program *program)
+{
+	if (nb == 0)
+		ft_printf("quit successfully\n");
+	else if (nb == 1)
+		ft_printf("you win\n");
+	ft_free(program);
+	destroy_images(program);
+	exit (0);
+}
+
+int	destroy(t_program *program)
+{
+	exit_success(0, program);
+	return (1);
+}
+
 void	exit_error(int error, t_program *program)
 {
 	if (error == 0)
-		ft_printf("quit successfully\n");
+	{
+		ft_printf("error\ninvalide file");
+ 		exit(1);
+	}
 	else if (error == 1)
 		ft_printf("error \ninvalid map");
 	else if (error == 2)
@@ -60,12 +80,7 @@ void	exit_error(int error, t_program *program)
 	else if (error == 3)
 		ft_printf("error \nMLX library initialization failed");
 	else if (error == 4)
-		ft_printf("you win\n");
-	else if (error == 5)
-	{
-		ft_printf("error\ninvalide file");
-		exit(1);
-	}
+		ft_printf("error \nimage error");
 	ft_free(program);
 	destroy_images(program);
 	exit(1);
