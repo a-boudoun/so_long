@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/23 16:16:41 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:01:23 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,15 @@ typedef struct s_program{
 # define RIGHT 124
 
 void	exit_error(int error, t_program *program);
+char	*ft_itoa(int n);
+void	exit_success(int nb, t_program *program);
 void	generate_window(t_program *program);
 int		moves(int key, t_program *program);
-char	*ft_itoa(int n);
 void	get_images(t_program *program);
 void	render_game(t_program *program);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_initialize(t_program *program);
+int		destroy(t_program *program);
 void	parsing_map(t_program *program, int fd);
 void	build_map(t_program *program, char *line);
 void	check_component(t_program *program);

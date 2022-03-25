@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:48:34 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/24 20:57:20 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/25 14:50:36 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	main(int argc, char **argv)
 	get_images(&program);
 	render_game(&program);
 	mlx_hook(program.mlx_win, 2, 1L << 0, moves, &program);
+	mlx_hook(program.mlx_win, 17, 0L, destroy, &program);
 	mlx_loop(program.mlx);
 }

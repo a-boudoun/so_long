@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:46:49 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/24 21:20:17 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:12:34 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	exit_error(int error, t_program *program)
 	if (error == 0)
 	{
 		ft_printf("error\ninvalide file");
- 		exit(1);
+		exit(1);
 	}
 	else if (error == 1)
 		ft_printf("error \ninvalid map");

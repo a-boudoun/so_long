@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 20:11:22 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/24 21:19:39 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:13:44 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	player_images(t_program *program)
 	if (!program->img.player_right)
 		exit_error(4, program);
 	program->img.player_down = mlx_xpm_file_to_image(program->mlx,
-			 "images/player_down.xpm", &img_width, &img_height);
+			"images/player_down.xpm", &img_width, &img_height);
 	if (!program->img.player_down)
 		exit_error(4, program);
 	program->img.player_up = mlx_xpm_file_to_image(program->mlx,

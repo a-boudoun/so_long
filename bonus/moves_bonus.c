@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:07:51 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/03/22 16:16:20 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/03/25 14:59:08 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	move_right(t_program *program, bool *trigger)
 	x = program->player.x;
 	y = program->player.y;
 	if (program->map.map[y][x + 1] == 'I')
-		exit_error(5, program);
+		exit_success(2, program);
 	if (program->map.map[y][x + 1] == 'E')
 	{
 		if (program->map.collectible == 0)
-			exit_error(4, program);
+			exit_success(1, program);
 		return ;
 	}
 	program->player.position = 1;
@@ -47,11 +47,11 @@ void	move_left(t_program *program, bool *trigger)
 	x = program->player.x;
 	y = program->player.y;
 	if (program->map.map[y][x - 1] == 'I')
-		exit_error(5, program);
+		exit_success(2, program);
 	if (program->map.map[y][x - 1] == 'E')
 	{
 		if (program->map.collectible == 0)
-			exit_error(4, program);
+			exit_success(1, program);
 		return ;
 	}
 	program->player.position = 2;
@@ -74,11 +74,11 @@ void	move_down(t_program *program, bool *trigger)
 	x = program->player.x;
 	y = program->player.y;
 	if (program->map.map[y + 1][x] == 'I')
-		exit_error(5, program);
+		exit_success(2, program);
 	if (program->map.map[y + 1][x] == 'E')
 	{
 		if (program->map.collectible == 0)
-			exit_error(4, program);
+			exit_success(1, program);
 		return ;
 	}
 	program->player.position = 3;
@@ -101,11 +101,11 @@ void	move_up(t_program *program, bool *trigger)
 	x = program->player.x;
 	y = program->player.y;
 	if (program->map.map[y - 1][x] == 'I')
-		exit_error(5, program);
+		exit_success(2, program);
 	if (program->map.map[y - 1][x] == 'E')
 	{
 		if (program->map.collectible == 0)
-			exit_error(4, program);
+			exit_success(1, program);
 		return ;
 	}
 	program->player.position = 4;
@@ -138,7 +138,7 @@ int	moves(int key, t_program *program)
 	if ((key == D || key == LEFT) && program->map.map[y][x - 1] != '1')
 		move_left(program, &trigger);
 	if (key == ESC)
-		exit_error(0, program);
+		exit_success(0, program);
 	if (trigger)
 		program->moves++;
 	render_game(program);
