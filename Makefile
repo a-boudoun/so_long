@@ -12,8 +12,8 @@ MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 
 HEADER = so_long.h
 PREC_HEADER = so_long.h.gch
-BONUS_HEADER = /bonus/so_long_bonus.h
-BON_PREC_HEADER = /bonus/so_long_bonus.h.gch
+BONUS_HEADER = ./bonus/so_long_bonus.h
+BON_PREC_HEADER = bonus/so_long_bonus.h.gch
 
 MAND_FILES = main.c \
 		parsing_map.c \
@@ -53,8 +53,8 @@ bonus : $(BONUS)
 $(BONUS): $(BON_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
 	@$(CC) $(FLAGS) $(MLX_FLAG)  $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $(BONUS) $(BON_FILES)
 
-%.o : %.c $(BONUS_HEADER) $(HEADER)
-	@$(CC) $(FLAGS) -c $^ 
+%.o : %.c $(HEADER) $(BONUS_HEADER)
+	@$(CC) $(FLAGS) -o $@ -c $<
 	@echo "$(GREEN)" "compiling $<"
 
 $(GETNEXTLINE_LIB):
@@ -64,7 +64,7 @@ $(FTPRINTF_LIB):
 	@$(MAKE) -C $(FTPRINTF_DIR)
 
 clean:
-	@rm -rf $(MAND_OBJ) $(BON_OBJ) $(PREC_HEADER) $(BON_PREC_HEADER)
+	@rm -rf $(MAND_OBJ) $(OBJECT_BON) $(PREC_HEADER) $(BON_PREC_HEADER)
 	@$(MAKE) clean -C $(FTPRINTF_DIR)
 	@$(MAKE) clean -C $(GETNEXTLINE_DIR)
 	@echo "$(RED)" "cleaning..."
