@@ -64,7 +64,7 @@ $(FTPRINTF_LIB):
 	@$(MAKE) -C $(FTPRINTF_DIR)
 
 clean:
-	@rm -rf $(MAND_OBJ) $(OBJECT_BON) $(PREC_HEADER) $(BON_PREC_HEADER)
+	@rm -rf $(MAND_OBJ) $(BON_OBJ) $(PREC_HEADER) $(BON_PREC_HEADER)
 	@$(MAKE) clean -C $(FTPRINTF_DIR)
 	@$(MAKE) clean -C $(GETNEXTLINE_DIR)
 	@echo "$(RED)" "cleaning..."
